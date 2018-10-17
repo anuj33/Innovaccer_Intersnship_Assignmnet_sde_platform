@@ -1,0 +1,34 @@
+
+App-name - spoiler_avoider
+Purpose - send mails to the customer for the upcoming episodes schedule for the preferred tv series
+
+CommonUtils - contain code for insering data in sql and sending mail
+config - common config like db cred, smtp server creds etc.
+imdb_scrapper - entire logic of scraping the schedule data from imdb
+spoiler_avoider.py - main script
+mysql_table_schema.txt - schema for the mysql table
+
+setup :-
+1) please setup database spoiler_avoider, and then create table by running table schema from file - "mysql_table_schema.txt"
+2) user will have to enter email address and command seperated values of tv series. email address column has unique constraint
+3) please add smtp server username and password in config file.
+
+Algorithm for data scraping-
+1) search tv series on imdb.
+2) scrape the url of actual imdb page of that tv series and go to that page.
+3) scrape the url of latest season of that tv series and go to that page
+4) iterate though the soorted episodes one by one.
+5) when we reach a episode whose plot description is not there, that means this would be an upcoming episode. scrape the date, regex match and parse the date.
+6) if you reach end without finding an episode without a plot, this means series has already ended.
+7) if first episode itself has no plot, which means this is next season.
+
+insert data in mysql :-
+1) using pymsql library for jdbc connection with mysql.
+2) have unique constraint on mail id - please noe that
+
+
+
+
+
+
+

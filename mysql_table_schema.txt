@@ -1,0 +1,9 @@
+
+
+#database-name : spoiler_avoider
+CREATE TABLE `user_tv_series_info` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `mail_id` varchar(255) DEFAULT NULL,
+  `preferred_tv_series` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
